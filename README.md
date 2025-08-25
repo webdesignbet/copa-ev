@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⚽ Fut-EV
 
-## Getting Started
+Tabela de classificação e próximos jogos para campeonato amador patrocinado pela sua empresa, feito em Next.js + Tailwind, com PWA e integração automática via Google Sheets.
 
-First, run the development server:
+## 🚀 Funcionalidades
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+✅ Tabela completa de 32 times com:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Pontos
+- Jogos
+- Vitórias, empates, derrotas
+- Gols pró, gols contra, saldo de gols
+- Aproveitamento calculado automaticamente
+- Posição com brasão e sigla do time
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+✅ Próximos jogos da semana com acrônimo + tooltip.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+✅ Ordenação dinâmica na tabela ao clicar nas colunas, com ícones de direção.
 
-## Learn More
+✅ PWA: instalável em celulares e desktops.
 
-To learn more about Next.js, take a look at the following resources:
+✅ Dark mode com botão fixo.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+✅ Carregamento automático dos dados pelo Google Sheets via Service Account.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+✅ Atualização de brasões via planilha, usando imagens hospedadas no GitHub.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛠️ Tecnologias
+- Next.js 14
+- App Router
+- Tailwind CSS
+- TypeScript (opcional)
+- lucide-react
+- Google Sheets API
+- PWA (manifest + service worker)
+- Hospedagem na Vercel
