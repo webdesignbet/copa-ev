@@ -29,7 +29,7 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
 
   const columns: Column[] = [
     { label: "#", key: "id", tooltip: "Posição" },
-    { label: "TIMES", key: "nome", tooltip: "Nome do Time" },
+    { label: "Times", key: "nome", tooltip: "Nome do Time" },
     { label: "P", key: "pontos", tooltip: "Pontos" },
     { label: "J", key: "jogos", tooltip: "Jogos" },
     { label: "V", key: "vitorias", tooltip: "Vitórias" },
@@ -61,58 +61,68 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
   const getSortIcon = (key: keyof Time) => {
     if (key !== sortKey) return null;
     return sortAsc ? (
-      <ArrowUp className="inline w-4 h-4 ml-1" />
+      <ArrowUp className="inline w-4 h-4 ml-1 text-red-600" />
     ) : (
-      <ArrowDown className="inline w-4 h-4 ml-1" />
+      <ArrowDown className="inline w-4 h-4 ml-1 text-red-600" />
     );
   };
 
   return (
-    <div className="overflow-x-auto mt-6 max-w-6xl">
-      <table className="min-w-full md:min-w-2xl border-collapse">
-        <thead>
-          <tr className="bg-gray-500 dark:bg-gray-700 text-lg text-white text-left">
+    <div className="overflow-x-auto mt-8 max-w-6xl rounded-2xl shadow-lg backdrop-blur-md bg-white/30 dark:bg-gray-800/30">
+      <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 text-gray-900 dark:text-gray-100">
+        <thead className="sticky top-0 bg-white/40 dark:bg-gray-900/40 backdrop-blur-md z-10">
+          <tr>
             {columns.map((col) => (
               <th
                 key={col.key as string}
                 onClick={() => handleSort(col.key)}
-                className={`p-2 cursor-pointer select-none font-bold ${
-                  sortKey === col.key ? (sortAsc ? 'asc' : 'desc') : ''
+                className={`px-4 py-3 text-sm font-semibold uppercase cursor-pointer select-none relative transition ${
+                  sortKey === col.key
+                    ? "text-red-600 dark:text-red-400"
+                    : "hover:text-red-500 dark:hover:text-red-300"
                 }`}
                 title={col.tooltip}
               >
-                {col.label}
-                {getSortIcon(col.key)}
+                <span className="flex items-center justify-center">
+                  {col.label}
+                  {getSortIcon(col.key)}
+                </span>
+
+                {/* Red underline for active column */}
+                {sortKey === col.key && (
+                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-red-600 dark:bg-red-400 rounded-full"></span>
+                )}
               </th>
             ))}
           </tr>
         </thead>
-        <tbody>
+        <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
           {sortedData.map((time) => (
             <tr
               key={time.id}
-              className="border-b border-l border-r text-left dark:border-gray-700"
+              className="hover:bg-red-50 dark:hover:bg-red-900/20 transition"
             >
-              <td className="p-2 font-bold pr-4 pl-4">{time.id}</td>
-              <td className="flex items-center p-2 gap-2 text-left pl-2 pr-14">
+              <td className="px-4 py-2 font-bold">{time.id}</td>
+              <td className="px-4 py-2 flex items-center gap-2">
                 <Image
                   src={time.brasao || "/brasoes/escudobase.svg"}
                   alt={time.nome}
                   width={26}
                   height={26}
+                  className="object-contain"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.src = "/brasoes/escudobase.svg";
                   }}
                 />
-                <span className="min-w-[100px]">{time.nome}</span>
+                <span className="whitespace-nowrap">{time.nome}</span>
               </td>
-              <td className="p-2 pr-4">{time.pontos}</td>
-              <td className="p-2 pr-4">{time.jogos}</td>
-              <td className="p-2 pr-4">{time.vitorias}</td>
-              <td className="p-2 pr-4">{time.empates}</td>
-              <td className="p-2 pr-4">{time.derrotas}</td>
-              <td className="p-2 pr-4">{time.saldoGols}</td>
+              <td className="px-4 py-2 text-center">{time.pontos}</td>
+              <td className="px-4 py-2 text-center">{time.jogos}</td>
+              <td className="px-4 py-2 text-center">{time.vitorias}</td>
+              <td className="px-4 py-2 text-center">{time.empates}</td>
+              <td className="px-4 py-2 text-center">{time.derrotas}</td>
+              <td className="px-4 py-2 text-center">{time.saldoGols}</td>
             </tr>
           ))}
         </tbody>
