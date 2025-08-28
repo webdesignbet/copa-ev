@@ -68,8 +68,8 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
   };
 
   return (
-    <div className="overflow-x-auto mt-8 max-w-6xl rounded-2xl shadow-lg backdrop-blur-md bg-white/30 dark:bg-gray-800/30">
-      <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 text-gray-900 dark:text-gray-100">
+    <div className="overflow-x-auto mt-6 w-full max-w-6xl rounded-2xl shadow-lg backdrop-blur-md bg-white/30 dark:bg-gray-800/30">
+      <table className="w-full text-xs sm:text-sm md:text-base divide-y divide-gray-200 dark:divide-gray-700 text-gray-900 dark:text-gray-100">
         <thead className="sticky top-0 bg-white/40 dark:bg-gray-900/40 backdrop-blur-md z-10">
           <tr>
             {columns.map((col) => (
@@ -90,7 +90,7 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
 
                 {/* Red underline for active column */}
                 {sortKey === col.key && (
-                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-red-600 dark:bg-red-400 rounded-full"></span>
+                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-black dark:bg-white rounded-full"></span>
                 )}
               </th>
             ))}
