@@ -37,7 +37,7 @@ export default async function Home() {
       <ThemeToggle />
 
       {/* Título Principal */}
-      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-center pb-4 mt-4 tracking-wide text-red-600 dark:text-red-400">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-center pb-4 mt-4 tracking-wide text-red-600 dark:text-red-400">
         COPA AMADOR 2025
       </h1>
 
