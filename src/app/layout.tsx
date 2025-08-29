@@ -29,7 +29,7 @@ export default function RootLayout({
         "
       >
         {/* Overlay de textura sutil */}
-        <div className="fixed inset-0 min-w-full h-full pointer-events-none bg-[url('/textures/fundo.png')] dark:opacity-30 z-0"></div>
+        <div className="fixed inset-0 h-full pointer-events-none bg-[url('/textures/fundo.png')] dark:opacity-30 z-0"></div>
 
         {/* Conteúdo principal */}
         <div className="relative z-10">{children}</div>
