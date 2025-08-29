@@ -68,8 +68,8 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
   };
 
   return (
-    <div className="overflow-x mt-6 w-full max-w-6xl rounded-2xl shadow-lg backdrop-blur-md bg-white/30 dark:bg-gray-800/30">
-      <table className="w-full text-xs sm:text-sm md:text-base divide-y divide-gray-200 dark:divide-gray-700 text-gray-900 dark:text-gray-100">
+    <div className="overflow-x-auto mt-6 max-w-6xl rounded-2xl shadow-lg backdrop-blur-md bg-white/30 dark:bg-gray-800/30">
+      <table className="min-w-full md:min-w-2xl text-xs sm:text-sm md:text-base divide-y divide-gray-200 dark:divide-gray-700 text-gray-900 dark:text-gray-100">
         <thead className="sticky top-0 bg-white/40 dark:bg-gray-900/40 backdrop-blur-md z-10">
           <tr>
             {columns.map((col) => (
@@ -102,8 +102,8 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
               key={time.id}
               className="hover:bg-red-50 dark:hover:bg-red-900/20 transition"
             >
-              <td className="px-4 py-2 font-bold">{time.id}</td>
-              <td className="px-4 py-2 flex items-center gap-2">
+              <td className="p-2 pr-4 pl-4 font-bold">{time.id}</td>
+              <td className="p-2 pr-14 pl-2 flex items-center gap-2">
                 <Image
                   src={time.brasao || "/brasoes/escudobase.svg"}
                   alt={time.nome}
@@ -115,14 +115,14 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
                     target.src = "/brasoes/escudobase.svg";
                   }}
                 />
-                <span className="whitespace-nowrap">{time.nome}</span>
+                <span className="whitespace-nowrap min-w-[100px]">{time.nome}</span>
               </td>
-              <td className="px-4 py-2 text-center">{time.pontos}</td>
-              <td className="px-4 py-2 text-center">{time.jogos}</td>
-              <td className="px-4 py-2 text-center">{time.vitorias}</td>
-              <td className="px-4 py-2 text-center">{time.empates}</td>
-              <td className="px-4 py-2 text-center">{time.derrotas}</td>
-              <td className="px-4 py-2 text-center">{time.saldoGols}</td>
+              <td className="p-2 pr-4 py-2 text-center">{time.pontos}</td>
+              <td className="p-2 pr-4 py-2 text-center">{time.jogos}</td>
+              <td className="p-2 pr-4 py-2 text-center">{time.vitorias}</td>
+              <td className="p-2 pr-4 py-2 text-center">{time.empates}</td>
+              <td className="p-2 pr-4 py-2 text-center">{time.derrotas}</td>
+              <td className="p-2 pr-4 py-2 text-center">{time.saldoGols}</td>
             </tr>
           ))}
         </tbody>
