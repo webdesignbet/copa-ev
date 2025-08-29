@@ -68,7 +68,7 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
   };
 
   return (
-    <div className="overflow-x-auto mt-6 max-w-6xl rounded-2xl shadow-lg backdrop-blur-md bg-white/30 dark:bg-gray-800/30">
+    <div className="overflow-x-auto mt-6 max-w-6xl w-full rounded-2xl shadow-lg backdrop-blur-md bg-white/30 dark:bg-gray-800/30">
       <table className="min-w-full md:min-w-2xl divide-y divide-gray-200 dark:divide-gray-700 text-gray-900 dark:text-gray-100">
         <thead className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md">
           <tr className="text-lg text-left">
@@ -115,7 +115,7 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
                     target.src = "/brasoes/escudobase.svg";
                   }}
                 />
-                <span className="min-w-[100px]">{time.nome}</span>
+                <span className="min-w-[200px]">{time.nome}</span>
               </td>
               <td className="p-2 pr-4 py-2 text-center">{time.pontos}</td>
               <td className="p-2 pr-4 py-2 text-center">{time.jogos}</td>

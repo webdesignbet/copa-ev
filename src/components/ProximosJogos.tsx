@@ -40,11 +40,9 @@ export default function ProximosJogos({ data }: { data: Jogo[] }) {
     return () => clearInterval(interval);
   }, [isHovered]);
 
-  const duplicated = [...data, ...data];
-
   return (
-    <div className="mt-10 max-w-6xl">
-      <div className="relative w-full">
+    <div className="mt-10 max-w-screen">
+      <div className="relative max-w-screen">
         <button
           onClick={() => scrollBy(-320)}
           className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full shadow-lg"
@@ -56,9 +54,9 @@ export default function ProximosJogos({ data }: { data: Jogo[] }) {
           ref={scrollRef}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className="flex overflow-x-auto no-scrollbar gap-4 px-4 sm:px-10 py-4 scroll-smooth"
+          className="flex overflow-x-auto no-scrollbar gap-4 px-4 py-4 scroll-smooth"
         >
-          {duplicated.map((jogo, i) => (
+          {data.map((jogo, i) => (
             <div
               key={`${jogo.id}-${i}`}
               className="min-w-[240px] sm:min-w-[270px] md:min-w-[300px] rounded-2xl p-4 shadow-lg bg-white/30 dark:bg-gray-800/30 backdrop-blur-md border border-red-200 dark:border-red-700 p-3 flex flex-col items-center transition hover:border-red-400 dark:hover:border-red-500"

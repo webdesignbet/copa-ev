@@ -33,7 +33,7 @@ export default function ThemeToggle() {
     <button
       onClick={toggleTheme}
       aria-label="Alternar tema"
-      className="fixed bottom-5 right-5 p-3 rounded-full bg-white/30 dark:bg-gray-800/30 backdrop-blur-md shadow-lg transition hover:scale-110 hover:ring-2 hover:ring-red-500 dark:hover:ring-red-400"
+      className="fixed bottom-5 right-5 p-3 rounded-full bg-white/30 dark:bg-gray-800/30 backdrop-blur-md shadow-lg transition hover:scale-110 hover:ring-2 hover:ring-red-500 dark:hover:ring-red-400 z-1"
     >
       {theme === "light" ? (
         <Moon className="h-6 w-6" />

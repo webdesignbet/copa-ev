@@ -32,32 +32,32 @@ export default async function Home() {
   );
 
   return (
-    <main className="max-w-6xl mx-auto p-2 justify-items-center">
+    <main className="max-w-4xl mx-auto p-2 justify-items-center">
       {/* Botão de Tema */}
       <ThemeToggle />
 
       {/* Título Principal */}
-      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-center pb-4 mt-4 tracking-wide text-red-600 dark:text-red-400">
-        COPA AMADOR 2025
+      <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-center pb-4 mt-4 text-red-600 dark:text-red-400">
+          COPA AMADOR 2025
       </h1>
 
       {/* Galeria de Times */}
-      <section className="flex flex-col items-center max-w-6xl">
+      <div className="flex flex-col items-center">
         <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-1 text-red-600 dark:text-red-400 relative inline-block">
           Times Participantes
           <span className="block w-10 h-[2px] bg-red-600 dark:bg-red-400 mx-auto mt-1 rounded-full"></span>
         </h2>
         <GaleriaTimes times={times} />
-      </section>
+      </div>
 
       {/* Tabela de Classificação */}
-      <section className="flex flex-col items-center mt-8 sm:mt-10 max-w-6xl">
+      <div className="flex flex-col items-center mt-8 sm:mt-10 max-w-6xl">
         <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-1 text-red-600 dark:text-red-400 relative inline-block">
           Classificação
           <span className="block w-10 h-[2px] bg-red-600 dark:bg-red-400 mx-auto mt-1 rounded-full"></span>
         </h2>
-        <TabelaTimes data={tabela} />
-      </section>
+      </div>
+      <TabelaTimes data={tabela} />
 
       {/* Próximos Jogos */}
       <section className="flex flex-col items-center mt-8 sm:mt-10 max-w-6xl">
