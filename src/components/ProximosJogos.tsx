@@ -40,6 +40,8 @@ export default function ProximosJogos({ data }: { data: Jogo[] }) {
     return () => clearInterval(interval);
   }, [isHovered]);
 
+  const duplicated = [...data, ...data];
+
   return (
     <div className="mt-10 max-w-screen">
       <div className="relative max-w-4xl">
@@ -56,7 +58,7 @@ export default function ProximosJogos({ data }: { data: Jogo[] }) {
           onMouseLeave={() => setIsHovered(false)}
           className="flex overflow-x-auto no-scrollbar gap-4 px-4 py-4 scroll-smooth"
         >
-          {data.map((jogo, i) => (
+          {duplicated.map((jogo, i) => (
             <div
               key={`${jogo.id}-${i}`}
               className="min-w-[240px] sm:min-w-[270px] md:min-w-[300px] rounded-2xl p-4 shadow-lg bg-white/30 dark:bg-gray-800/30 backdrop-blur-md border border-red-200 dark:border-red-700 p-3 flex flex-col items-center transition hover:border-red-400 dark:hover:border-red-500"
