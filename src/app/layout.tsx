@@ -20,14 +20,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         {/* Mantive as configs dos splash screens */}
       </head>
-      <body
-        className="
-          antialiased pb-8
-          bg-gradient-to-br from-gray-50 via-white to-gray-100 
-          dark:from-gray-900 dark:via-gray-950 dark:to-black
-          min-h-screen transition-colors duration-500
-        "
-      >
+      <body className="antialiased pb-8 max-w-full">
         {/* Overlay de textura sutil */}
         <div className="fixed inset-0 h-full pointer-events-none bg-[url('/textures/fundo.png')] dark:opacity-30 z-0"></div>
 

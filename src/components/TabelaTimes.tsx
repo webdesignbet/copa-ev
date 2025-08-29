@@ -69,14 +69,14 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
 
   return (
     <div className="overflow-x-auto mt-6 max-w-6xl rounded-2xl shadow-lg backdrop-blur-md bg-white/30 dark:bg-gray-800/30">
-      <table className="min-w-full md:min-w-2xl text-xs sm:text-sm md:text-base divide-y divide-gray-200 dark:divide-gray-700 text-gray-900 dark:text-gray-100">
-        <thead className="sticky top-0 bg-white/40 dark:bg-gray-900/40 backdrop-blur-md z-10">
-          <tr>
+      <table className="min-w-full md:min-w-2xl divide-y divide-gray-200 dark:divide-gray-700 text-gray-900 dark:text-gray-100">
+        <thead className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md">
+          <tr className="text-lg text-left">
             {columns.map((col) => (
               <th
                 key={col.key as string}
                 onClick={() => handleSort(col.key)}
-                className={`px-4 py-3 text-sm font-semibold uppercase cursor-pointer select-none relative transition ${
+                className={`p-2 font-semibold uppercase cursor-pointer select-none relative transition ${
                   sortKey === col.key
                     ? "text-red-600 dark:text-red-400"
                     : "hover:text-red-500 dark:hover:text-red-300"
@@ -115,7 +115,7 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
                     target.src = "/brasoes/escudobase.svg";
                   }}
                 />
-                <span className="whitespace-nowrap min-w-[100px]">{time.nome}</span>
+                <span className="min-w-[100px]">{time.nome}</span>
               </td>
               <td className="p-2 pr-4 py-2 text-center">{time.pontos}</td>
               <td className="p-2 pr-4 py-2 text-center">{time.jogos}</td>
