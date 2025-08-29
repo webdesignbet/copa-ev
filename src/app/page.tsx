@@ -32,7 +32,7 @@ export default async function Home() {
   );
 
   return (
-    <main className="w-full max-w-full mx-auto p-2 sm:p-4 justify-items-center">
+    <main className="w-screen max-w-full mx-auto p-2 sm:p-4 justify-items-center">
       {/* Botão de Tema */}
       <ThemeToggle />
 
@@ -42,7 +42,7 @@ export default async function Home() {
       </h1>
 
       {/* Galeria de Times */}
-      <section className="w-full flex flex-col items-center">
+      <section className="w-screen flex flex-col items-center">
         <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-1 text-red-600 dark:text-red-400 relative inline-block">
           Times Participantes
           <span className="block w-10 h-[2px] bg-red-600 dark:bg-red-400 mx-auto mt-1 rounded-full"></span>
@@ -51,7 +51,7 @@ export default async function Home() {
       </section>
 
       {/* Tabela de Classificação */}
-      <section className="w-full flex flex-col items-center mt-8 sm:mt-10">
+      <section className="w-screen flex flex-col items-center mt-8 sm:mt-10">
         <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-1 text-red-600 dark:text-red-400 relative inline-block">
           Classificação
           <span className="block w-10 h-[2px] bg-red-600 dark:bg-red-400 mx-auto mt-1 rounded-full"></span>
@@ -60,7 +60,7 @@ export default async function Home() {
       </section>
 
       {/* Próximos Jogos */}
-      <section className="w-full flex flex-col items-center mt-12">
+      <section className="w-screen flex flex-col items-center mt-12">
         <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-1 text-red-600 dark:text-red-400 relative inline-block">
           Próximos Jogos
           <span className="block w-10 h-[2px] bg-red-600 dark:bg-red-400 mx-auto mt-1 rounded-full"></span>
