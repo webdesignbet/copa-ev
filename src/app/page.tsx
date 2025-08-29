@@ -42,7 +42,7 @@ export default async function Home() {
       </h1>
 
       {/* Galeria de Times */}
-      <section className="flex flex-col items-center">
+      <section className="flex flex-col items-center max-w-6xl">
         <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-1 text-red-600 dark:text-red-400 relative inline-block">
           Times Participantes
           <span className="block w-10 h-[2px] bg-red-600 dark:bg-red-400 mx-auto mt-1 rounded-full"></span>
@@ -51,7 +51,7 @@ export default async function Home() {
       </section>
 
       {/* Tabela de Classificação */}
-      <section className="flex flex-col items-center mt-8 sm:mt-10">
+      <section className="flex flex-col items-center mt-8 sm:mt-10 max-w-6xl">
         <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-1 text-red-600 dark:text-red-400 relative inline-block">
           Classificação
           <span className="block w-10 h-[2px] bg-red-600 dark:bg-red-400 mx-auto mt-1 rounded-full"></span>
@@ -60,7 +60,7 @@ export default async function Home() {
       </section>
 
       {/* Próximos Jogos */}
-      <section className="flex flex-col items-center mt-12">
+      <section className="flex flex-col items-center mt-8 sm:mt-10 max-w-6xl">
         <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-1 text-red-600 dark:text-red-400 relative inline-block">
           Próximos Jogos
           <span className="block w-10 h-[2px] bg-red-600 dark:bg-red-400 mx-auto mt-1 rounded-full"></span>
