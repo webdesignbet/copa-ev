@@ -68,8 +68,8 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
   };
 
   return (
-    <div className="overflow-x-auto mt-6 max-w-6xl w-full rounded-2xl shadow-lg backdrop-blur-md bg-white/30 dark:bg-gray-800/30">
-      <table className="min-w-full md:min-w-2xl divide-y divide-gray-200 dark:divide-gray-700 text-gray-900 dark:text-gray-100">
+    <div className="overflow-x-auto mt-6 w-full rounded-2xl shadow-lg backdrop-blur-md bg-white/30 dark:bg-gray-800/30">
+      <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 text-gray-900 dark:text-gray-100">
         <thead className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md">
           <tr className="text-lg text-left">
             {columns.map((col) => (

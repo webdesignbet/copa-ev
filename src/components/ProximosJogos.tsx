@@ -42,7 +42,7 @@ export default function ProximosJogos({ data }: { data: Jogo[] }) {
 
   return (
     <div className="mt-10 max-w-screen">
-      <div className="relative max-w-screen">
+      <div className="relative max-w-4xl">
         <button
           onClick={() => scrollBy(-320)}
           className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full shadow-lg"

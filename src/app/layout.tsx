@@ -21,12 +21,12 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         {/* Mantive as configs dos splash screens */}
       </head>
-      <body className="antialiased pb-8 max-w-6xl">
+      <body className="antialiased pb-8">
         {/* Overlay de textura sutil */}
-        <div className="fixed inset-0 h-full w-screen pointer-events-none bg-[url('/textures/fundo.png')] dark:opacity-30 z-0"></div>
+        <div className="fixed inset-0 h-full w-full pointer-events-none bg-[url('/textures/fundo.png')] dark:opacity-30 z-0"></div>
 
         {/* Conteúdo principal */}
-        <div className="relative z-10 max-w-6xl">{children}</div>
+        <div className="relative z-10">{children}</div>
       </body>
     </html>
   );

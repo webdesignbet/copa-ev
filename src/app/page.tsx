@@ -60,7 +60,7 @@ export default async function Home() {
       <TabelaTimes data={tabela} />
 
       {/* Próximos Jogos */}
-      <section className="flex flex-col items-center mt-8 sm:mt-10 max-w-6xl">
+      <section className="flex flex-col items-center mt-8 sm:mt-10 max-w-2xl">
         <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-1 text-red-600 dark:text-red-400 relative inline-block">
           Próximos Jogos
           <span className="block w-10 h-[2px] bg-red-600 dark:bg-red-400 mx-auto mt-1 rounded-full"></span>
