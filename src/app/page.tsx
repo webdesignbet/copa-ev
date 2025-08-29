@@ -32,7 +32,7 @@ export default async function Home() {
   );
 
   return (
-    <main className="max-w-full mx-auto p-2 justify-items-center">
+    <main className="max-w-6xl mx-auto p-2 justify-items-center">
       {/* Botão de Tema */}
       <ThemeToggle />
 
