@@ -38,13 +38,13 @@ export default async function Home() {
       <ThemeToggle />
 
       {/* Título Principal como Imagem */}
-      <div className="flex justify-center mt-4 mb-6">
+      <div className="flex justify-center mt-4 mb-10">
         <Image
           src={"/logos/logo-vermelha3.png"}
           alt="Copa EsportivaVip 2025"
           width={400}
           height={120}
-          className="w-2/3 sm:w-1/2 md:w-[400px] h-auto"
+          className="w-auto md:w-[400px] h-auto"
           priority
         />
       </div>
@@ -73,8 +73,8 @@ export default async function Home() {
           Próximos Jogos
           <span className="block w-10 h-[2px] bg-red-600 dark:bg-red-400 mx-auto mt-1 rounded-full"></span>
         </h2>
-        <ProximosJogos data={proximosJogos} />
       </section>
+      <ProximosJogos data={proximosJogos} />
     </main>
   );
 }
