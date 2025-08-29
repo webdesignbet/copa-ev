@@ -61,7 +61,7 @@ export default function ProximosJogos({ data }: { data: Jogo[] }) {
           {duplicated.map((jogo, i) => (
             <div
               key={`${jogo.id}-${i}`}
-              className="min-w-[240px] sm:min-w-[270px] md:min-w-[300px] rounded-2xl p-4 shadow-lg bg-white/30 dark:bg-gray-800/30 backdrop-blur-md border border-red-200 dark:border-red-700 p-3 flex flex-col items-center transition hover:border-red-400 dark:hover:border-red-500"
+              className="min-w-[260px] sm:min-w-[290px] md:min-w-[320px] rounded-2xl p-4 shadow-lg bg-white/30 dark:bg-gray-800/30 backdrop-blur-md border border-red-200 dark:border-red-700 p-3 flex flex-col items-center transition hover:border-red-400 dark:hover:border-red-500"
             >
               <div className="text-xs text-gray-600 dark:text-gray-300 mb-1">
                 {jogo.local}
