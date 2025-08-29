@@ -3,6 +3,7 @@ import TabelaTimes from "@/components/TabelaTimes";
 import ProximosJogos from "@/components/ProximosJogos";
 import ThemeToggle from "@/components/ThemeToggle";
 import GaleriaTimes from "@/components/GaleriaTimes";
+import Image from "next/image";
 
 export default async function Home() {
   const tabela = await getTabela();
@@ -36,10 +37,17 @@ export default async function Home() {
       {/* Botão de Tema */}
       <ThemeToggle />
 
-      {/* Título Principal */}
-      <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-center pb-4 mt-4 text-red-600 dark:text-red-400">
-          COPA AMADOR 2025
-      </h1>
+      {/* Título Principal como Imagem */}
+      <div className="flex justify-center mt-4 mb-6">
+        <Image
+          src={"/logos/logo-vermelha3.png"}
+          alt="Copa EsportivaVip 2025"
+          width={400}
+          height={120}
+          className="w-2/3 sm:w-1/2 md:w-[400px] h-auto"
+          priority
+        />
+      </div>
 
       {/* Galeria de Times */}
       <div className="flex flex-col items-center">

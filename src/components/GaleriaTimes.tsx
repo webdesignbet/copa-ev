@@ -56,7 +56,7 @@ export default function GaleriaTimes({ times }: { times: Time[] }) {
         {times.map((time) => (
           <div
             key={time.sigla}
-            className="flex-shrink-0 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition"
+            className="flex-shrink-0 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition content-center"
             title={time.nome}
           >
             <Image
@@ -64,7 +64,7 @@ export default function GaleriaTimes({ times }: { times: Time[] }) {
               alt={time.nome}
               width={50}
               height={50}
-              className="object-contain"
+              className="object-contain justify-self-center"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 target.src = "/brasoes/escudobase.svg";
