@@ -16,7 +16,7 @@ const SPREADSHEET_ID = process.env.GOOGLE_SHEET_ID;
 export async function getTabela() {
   const response = await sheets.spreadsheets.values.get({
     spreadsheetId: SPREADSHEET_ID,
-    range: "Tabela!A2:J",
+    range: "Tabela!A2:L",
   });
   const rows = response.data.values;
   if (!rows) return [];
@@ -25,7 +25,7 @@ export async function getTabela() {
     const jogos = Number(r[5]);
 
     return {
-      id: Number(r[0]),
+      classificacao: Number(r[0]),
       nome: r[1],
       sigla: r[2],
       brasao: r[3],
@@ -34,7 +34,9 @@ export async function getTabela() {
       vitorias: Number(r[6]),
       empates: Number(r[7]),
       derrotas: Number(r[8]),
-      saldoGols: Number(r[9]),
+      golsPro: Number(r[9]),
+      golsContra: Number(r[10]),
+      saldoGols: Number(r[11]),
     };
   });
 }
