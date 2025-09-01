@@ -87,7 +87,7 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
                 }`}
                 title={col.tooltip}
               >
-                <span className="flex items-center">
+                <span className="flex">
                   {col.label}
                   {getSortIcon(col.key)}
                 </span>
