@@ -30,7 +30,7 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
   const [sortAsc, setSortAsc] = useState(true);
 
   const columns: Column[] = [
-    { label: "Classificação", key: "classificacao", tooltip: "Classificação" },
+    { label: "#", key: "classificacao", tooltip: "Classificação" },
     { label: "Times", key: "nome", tooltip: "Nome do Time" },
     { label: "P", key: "pontos", tooltip: "Pontos" },
     { label: "J", key: "jogos", tooltip: "Jogos" },
