@@ -75,19 +75,19 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
     <div className="overflow-x-auto mt-6 w-full rounded-2xl shadow-lg backdrop-blur-md bg-white/30 dark:bg-gray-800/30">
       <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 text-gray-900 dark:text-gray-100">
         <thead className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md">
-          <tr className="text-lg text-right">
+          <tr className="text-lg">
             {columns.map((col) => (
               <th
                 key={col.key as string}
                 onClick={() => handleSort(col.key)}
-                className={`p-2 font-semibold cursor-pointer select-none relative transition ${
+                className={`p-2 font-semibold cursor-pointer select-none relative min-w-[50px] transition ${
                   sortKey === col.key
                     ? "text-red-600 dark:text-red-400"
                     : "hover:text-red-500 dark:hover:text-red-300"
                 }`}
                 title={col.tooltip}
               >
-                <span className="flex">
+                <span className={`flex items-center ${col.label === "Times" ? "" : "justify-center"}`}>
                   {col.label}
                   {getSortIcon(col.key)}
                 </span>
@@ -100,13 +100,13 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
             ))}
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+        <tbody className="divide-y divide-gray-200 dark:divide-gray-700 text-sm">
           {sortedData.map((time) => (
             <tr
               key={time.classificacao}
               className="hover:bg-red-50 dark:hover:bg-red-900/20 transition"
             >
-              <td className="p-2 pr-4 pl-4 font-bold">{time.classificacao}</td>
+              <td className="p-2 pr-6 pl-6 font-bold text-center">{time.classificacao}</td>
               <td className="p-2 pr-14 pl-2 flex items-center gap-2">
                 <Image
                   src={time.brasao || "/brasoes/escudobase.svg"}
@@ -121,14 +121,14 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
                 />
                 <span className="min-w-[200px]">{time.nome}</span>
               </td>
-              <td className="p-2 pr-4 py-2 text-center">{time.pontos}</td>
-              <td className="p-2 pr-4 py-2 text-center">{time.jogos}</td>
-              <td className="p-2 pr-4 py-2 text-center">{time.vitorias}</td>
-              <td className="p-2 pr-4 py-2 text-center">{time.empates}</td>
-              <td className="p-2 pr-4 py-2 text-center">{time.derrotas}</td>
-              <td className="p-2 pr-4 py-2 text-center">{time.golsPro}</td>
-              <td className="p-2 pr-4 py-2 text-center">{time.golsContra}</td>
-              <td className="p-2 pr-4 py-2 text-center">{time.saldoGols}</td>
+              <td className="p-2 pr-6 pl-6 py-2 text-center">{time.pontos}</td>
+              <td className="p-2 pr-6 pl-6 py-2 text-center">{time.jogos}</td>
+              <td className="p-2 pr-6 pl-6 py-2 text-center">{time.vitorias}</td>
+              <td className="p-2 pr-6 pl-6 py-2 text-center">{time.empates}</td>
+              <td className="p-2 pr-6 pl-6 py-2 text-center">{time.derrotas}</td>
+              <td className="p-2 pr-6 pl-6 py-2 text-center">{time.golsPro}</td>
+              <td className="p-2 pr-6 pl-6 py-2 text-center">{time.golsContra}</td>
+              <td className="p-2 pr-6 pl-6 py-2 text-center">{time.saldoGols}</td>
             </tr>
           ))}
         </tbody>
