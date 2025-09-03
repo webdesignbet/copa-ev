@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { ArrowDown, ArrowUp } from "lucide-react";
 
 interface Time {
   classificacao: number;
@@ -26,8 +25,8 @@ interface Column {
 }
 
 export default function TabelaTimes({ data }: { data: Time[] }) {
-  const [sortKey, setSortKey] = useState<keyof Time>("classificacao");
-  const [sortAsc, setSortAsc] = useState(true);
+  const [sortKey] = useState<keyof Time>("classificacao");
+  const [sortAsc] = useState(true);
 
   const columns: Column[] = [
     { label: "#", key: "classificacao", tooltip: "Classificação" },
@@ -53,24 +52,6 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
       : (b[sortKey] as number) - (a[sortKey] as number);
   });
 
-  const handleSort = (key: keyof Time) => {
-    if (key === sortKey) {
-      setSortAsc(!sortAsc);
-    } else {
-      setSortKey(key);
-      setSortAsc(false);
-    }
-  };
-
-  const getSortIcon = (key: keyof Time) => {
-    if (key !== sortKey) return null;
-    return sortAsc ? (
-      <ArrowUp className="inline w-4 h-4 ml-1 text-red-600" />
-    ) : (
-      <ArrowDown className="inline w-4 h-4 ml-1 text-red-600" />
-    );
-  };
-
   return (
     <div className="overflow-x-auto mt-6 w-full rounded-2xl shadow-lg backdrop-blur-md bg-white/30 dark:bg-gray-800/30">
       <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 text-gray-900 dark:text-gray-100">
@@ -79,23 +60,16 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
             {columns.map((col) => (
               <th
                 key={col.key as string}
-                onClick={() => handleSort(col.key)}
-                className={`p-2 font-semibold cursor-pointer select-none relative min-w-[50px] transition ${
-                  sortKey === col.key
-                    ? "text-red-600 dark:text-red-400"
-                    : "hover:text-red-500 dark:hover:text-red-300"
-                }`}
+                className="p-2 font-semibold select-none relative min-w-[50px] transition"
                 title={col.tooltip}
               >
-                <span className={`flex items-center ${col.label === "Times" ? "" : "justify-center"}`}>
+                <span
+                  className={`flex items-center ${
+                    col.label === "Times" ? "" : "justify-center"
+                  }`}
+                >
                   {col.label}
-                  {getSortIcon(col.key)}
                 </span>
-
-                {/* Red underline for active column */}
-                {sortKey === col.key && (
-                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-black dark:bg-white rounded-full"></span>
-                )}
               </th>
             ))}
           </tr>
@@ -106,7 +80,9 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
               key={time.classificacao}
               className="hover:bg-red-50 dark:hover:bg-red-900/20 transition"
             >
-              <td className="p-2 pr-6 pl-6 font-bold text-center">{time.classificacao}</td>
+              <td className="p-2 font-bold text-center">
+                {time.classificacao}
+              </td>
               <td className="p-2 pr-14 pl-2 flex items-center gap-2">
                 <Image
                   src={time.brasao || "/brasoes/escudobase.svg"}
@@ -119,16 +95,16 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
                     target.src = "/brasoes/escudobase.svg";
                   }}
                 />
-                <span className="min-w-[200px]">{time.nome}</span>
+                <span className="min-w-[150px]">{time.nome}</span>
               </td>
-              <td className="p-2 pr-6 pl-6 py-2 text-center">{time.pontos}</td>
-              <td className="p-2 pr-6 pl-6 py-2 text-center">{time.jogos}</td>
-              <td className="p-2 pr-6 pl-6 py-2 text-center">{time.vitorias}</td>
-              <td className="p-2 pr-6 pl-6 py-2 text-center">{time.empates}</td>
-              <td className="p-2 pr-6 pl-6 py-2 text-center">{time.derrotas}</td>
-              <td className="p-2 pr-6 pl-6 py-2 text-center">{time.golsPro}</td>
-              <td className="p-2 pr-6 pl-6 py-2 text-center">{time.golsContra}</td>
-              <td className="p-2 pr-6 pl-6 py-2 text-center">{time.saldoGols}</td>
+              <td className="p-2 py-2 text-center">{time.pontos}</td>
+              <td className="p-2 py-2 text-center">{time.jogos}</td>
+              <td className="p-2 py-2 text-center">{time.vitorias}</td>
+              <td className="p-2 py-2 text-center">{time.empates}</td>
+              <td className="p-2 py-2 text-center">{time.derrotas}</td>
+              <td className="p-2 py-2 text-center">{time.golsPro}</td>
+              <td className="p-2 py-2 text-center">{time.golsContra}</td>
+              <td className="p-2 py-2 text-center">{time.saldoGols}</td>
             </tr>
           ))}
         </tbody>
