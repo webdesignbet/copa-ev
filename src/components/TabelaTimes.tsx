@@ -74,7 +74,7 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
             ))}
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-200 dark:divide-gray-700 text-sm">
+        <tbody className="divide-y divide-gray-200 dark:divide-gray-700 text-xs">
           {sortedData.map((time) => (
             <tr
               key={time.classificacao}
@@ -95,7 +95,7 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
                     target.src = "/brasoes/escudobase.svg";
                   }}
                 />
-                <span className="min-w-[150px]">{time.nome}</span>
+                <span className="min-w-[175px]">{time.nome}</span>
               </td>
               <td className="p-2 py-2 text-center">{time.pontos}</td>
               <td className="p-2 py-2 text-center">{time.jogos}</td>
