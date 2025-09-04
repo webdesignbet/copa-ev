@@ -35,7 +35,7 @@ export default async function Home() {
   );
 
   return (
-    <main className="max-w-3xl mx-auto p-2 justify-items-center">
+    <main className="sm:max-w-3xl md:max-w-3xl lg:max-w-4xl xl:max-w-4xl mx-auto p-2 justify-items-center">
       {/* Botão de Tema */}
       <ThemeToggle />
 
