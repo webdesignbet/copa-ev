@@ -55,11 +55,11 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
     <div className="overflow-x-auto mt-6 w-full rounded-2xl shadow-lg backdrop-blur-md bg-white/30 dark:bg-gray-800/30">
       <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 text-gray-900 dark:text-gray-100">
         <thead className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md">
-          <tr className="text-lg">
+          <tr className="sm:text-sm md:text-md lg:text-lg xl:text-lg">
             {columns.map((col) => (
               <th
                 key={col.key as string}
-                className="p-2 font-semibold select-none relative min-w-[50px] transition"
+                className="p-2 font-bold select-none relative min-w-[40px] transition"
                 title={col.tooltip}
               >
                 <span className={`flex items-center ${
@@ -71,28 +71,33 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
             ))}
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-200 dark:divide-gray-700 text-xs">
+        <tbody className="divide-y divide-gray-200 dark:divide-gray-700 sm:text-sm md:text-md lg:text-lg xl:text-lg">
           {sortedData.map((time) => (
             <tr
               key={time.classificacao}
               className="hover:bg-red-50 dark:hover:bg-red-900/20 transition"
             >
-              <td className="p-2 flex items-center gap-2 font-bold">
-                <span className="w-8 text-center text-red-600 dark:text-red-400">
+              <td className="p-2 flex items-center gap-2 font-semibold">
+                <span className="w-6 text-center text-red-600 dark:text-red-400">
                   {time.classificacao}
                 </span>
-                <Image
-                  src={time.brasao || "/brasoes/escudobase.svg"}
-                  alt={time.nome}
-                  width={26}
-                  height={26}
-                  className="object-contain"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "/brasoes/escudobase.svg";
-                  }}
-                />
-                <span className="ml-1">{time.nome}</span>
+
+                <span className="ml-1 block sm:hidden md:hidden">{time.sigla}</span>
+
+                <span className="hidden sm:flex md:flex items-center gap-2">
+                  <Image
+                    src={time.brasao || "/brasoes/escudobase.svg"}
+                    alt={time.nome}
+                    width={26}
+                    height={26}
+                    className="object-contain"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = "/brasoes/escudobase.svg";
+                    }}
+                  />
+                  <span className="ml-1">{time.nome}</span>
+                </span>
               </td>
               <td className="p-2 py-2 text-center">{time.pontos}</td>
               <td className="p-2 py-2 text-center">{time.jogos}</td>

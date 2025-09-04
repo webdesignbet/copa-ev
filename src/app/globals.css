@@ -33,10 +33,6 @@ th.asc, th.desc {
   @apply bg-red-900 text-white dark:text-white;
 }
 
-tbody tr td {
-  @apply text-lg font-semibold;
-}
-
 .classificacao {
   text-indent: 5px;
 }
