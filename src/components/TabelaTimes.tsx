@@ -29,8 +29,7 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
   const [sortAsc] = useState(true);
 
   const columns: Column[] = [
-    { label: "#", key: "classificacao", tooltip: "Classificação" },
-    { label: "Times", key: "nome", tooltip: "Nome do Time" },
+    { label: "Classificação", key: "classificacao", tooltip: "Classificação" },
     { label: "P", key: "pontos", tooltip: "Pontos" },
     { label: "J", key: "jogos", tooltip: "Jogos" },
     { label: "V", key: "vitorias", tooltip: "Vitórias" },
@@ -63,11 +62,9 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
                 className="p-2 font-semibold select-none relative min-w-[50px] transition"
                 title={col.tooltip}
               >
-                <span
-                  className={`flex items-center ${
-                    col.label === "Times" ? "" : "justify-center"
-                  }`}
-                >
+                <span className={`flex items-center ${
+                  col.label === "Classificação" ? "classificacao" : "justify-center"
+                }`}>
                   {col.label}
                 </span>
               </th>
@@ -80,10 +77,10 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
               key={time.classificacao}
               className="hover:bg-red-50 dark:hover:bg-red-900/20 transition"
             >
-              <td className="p-2 font-bold text-center">
-                {time.classificacao}
-              </td>
-              <td className="p-2 pr-14 pl-2 flex items-center gap-2">
+              <td className="p-2 flex items-center gap-2 font-bold">
+                <span className="w-6 text-center text-red-600 dark:text-red-400">
+                  {time.classificacao}
+                </span>
                 <Image
                   src={time.brasao || "/brasoes/escudobase.svg"}
                   alt={time.nome}
@@ -95,7 +92,7 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
                     target.src = "/brasoes/escudobase.svg";
                   }}
                 />
-                <span className="min-w-[175px]">{time.nome}</span>
+                <span className="ml-1">{time.nome}</span>
               </td>
               <td className="p-2 py-2 text-center">{time.pontos}</td>
               <td className="p-2 py-2 text-center">{time.jogos}</td>

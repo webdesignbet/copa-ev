@@ -36,3 +36,7 @@ th.asc, th.desc {
 tbody tr td {
   @apply text-lg font-semibold;
 }
+
+.classificacao {
+  text-indent: 5px;
+}

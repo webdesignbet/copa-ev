@@ -5,6 +5,8 @@ import ThemeToggle from "@/components/ThemeToggle";
 import GaleriaTimes from "@/components/GaleriaTimes";
 import Image from "next/image";
 
+export const revalidate = 60;
+
 export default async function Home() {
   const tabela = await getTabela();
   const proximosJogos = await getProximosJogos();
