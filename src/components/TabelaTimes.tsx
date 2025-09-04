@@ -78,7 +78,7 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
               className="hover:bg-red-50 dark:hover:bg-red-900/20 transition"
             >
               <td className="p-2 flex items-center gap-2 font-bold">
-                <span className="w-6 text-center text-red-600 dark:text-red-400">
+                <span className="w-8 text-center text-red-600 dark:text-red-400">
                   {time.classificacao}
                 </span>
                 <Image
