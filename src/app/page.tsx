@@ -46,7 +46,7 @@ export default async function Home() {
       {/* Título Principal como Imagem */}
       <div className="flex justify-center mt-4 mb-10">
         <Image
-          src={"/logos/logo-vermelha3.png"}
+          src={"/logos/logo-vermelha3.webp"}
           alt="Copa EsportivaVip 2025"
           width={400}
           height={120}
