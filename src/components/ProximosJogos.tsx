@@ -75,6 +75,7 @@ export default function ProximosJogos({ data }: { data: Jogo[] }) {
                     width={32}
                     height={32}
                     className="object-contain"
+                    unoptimized
                   />
                   <span className="text-sm font-semibold cursor-default" title={jogo.mandante}>
                     {jogo.siglaMandante}
@@ -101,6 +102,7 @@ export default function ProximosJogos({ data }: { data: Jogo[] }) {
                     width={32}
                     height={32}
                     className="object-contain"
+                    unoptimized
                   />
                 </div>
               </div>

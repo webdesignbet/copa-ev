@@ -69,6 +69,7 @@ export default function GaleriaTimes({ times }: { times: Time[] }) {
                 const target = e.target as HTMLImageElement;
                 target.src = "/brasoes/escudobase.svg";
               }}
+              unoptimized
             />
           </div>
         ))}

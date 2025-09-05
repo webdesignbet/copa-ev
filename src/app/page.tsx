@@ -52,6 +52,7 @@ export default async function Home() {
           height={120}
           className="w-auto md:w-[400px] h-auto"
           priority
+          unoptimized
         />
       </div>
 

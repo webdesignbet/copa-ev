@@ -95,6 +95,7 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
                       const target = e.target as HTMLImageElement;
                       target.src = "/brasoes/escudobase.svg";
                     }}
+                    unoptimized
                   />
                   <span className="ml-1">{time.nome}</span>
                 </span>
