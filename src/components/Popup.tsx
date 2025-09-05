@@ -23,12 +23,13 @@ export default function Popup() {
         </button>
 
         <Image
-          src="/popup/banner.png"
+          src="/popup/banner.webp"
           alt="Popup"
           width={600}
           height={400}
           className="rounded-lg object-contain w-full h-auto"
           priority
+          unoptimized
         />
       </div>
     </div>
