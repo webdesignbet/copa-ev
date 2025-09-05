@@ -4,6 +4,7 @@ import ProximosJogos from "@/components/ProximosJogos";
 import ThemeToggle from "@/components/ThemeToggle";
 import GaleriaTimes from "@/components/GaleriaTimes";
 import Image from "next/image";
+import Popup from "@/components/Popup";
 
 export const revalidate = 60;
 
@@ -36,6 +37,9 @@ export default async function Home() {
 
   return (
     <main className="sm:max-w-3xl md:max-w-3xl lg:max-w-4xl xl:max-w-4xl mx-auto p-2 justify-items-center">
+      {/* Popup */}
+      <Popup />
+
       {/* Botão de Tema */}
       <ThemeToggle />
 
