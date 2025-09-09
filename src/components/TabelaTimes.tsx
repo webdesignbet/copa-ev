@@ -5,6 +5,7 @@ import { useState } from "react";
 
 interface Time {
   classificacao: number;
+  classGrp?: number;
   nome: string;
   sigla: string;
   brasao: string;
@@ -16,6 +17,7 @@ interface Time {
   golsPro: number;
   golsContra: number;
   saldoGols: number;
+  grupo?: string;
 }
 
 interface Column {
@@ -24,12 +26,19 @@ interface Column {
   tooltip: string;
 }
 
-export default function TabelaTimes({ data }: { data: Time[] }) {
-  const [sortKey] = useState<keyof Time>("classificacao");
+interface TabelaTimesProps {
+  data: Time[];
+  tipo: "geral" | "grupo";
+}
+
+export default function TabelaTimes({ data, tipo }: TabelaTimesProps) {
+  const colunaClassificacao: keyof Time = tipo === "geral" ? "classificacao" : "classGrp";
+  
+  const [sortKey] = useState<keyof Time>(colunaClassificacao);
   const [sortAsc] = useState(true);
 
   const columns: Column[] = [
-    { label: "Classificação", key: "classificacao", tooltip: "Classificação" },
+    { label: "Classificação", key: colunaClassificacao, tooltip: "Classificação" },
     { label: "P", key: "pontos", tooltip: "Pontos" },
     { label: "J", key: "jogos", tooltip: "Jogos" },
     { label: "V", key: "vitorias", tooltip: "Vitórias" },
@@ -52,7 +61,7 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
   });
 
   return (
-    <div className="overflow-x-auto mt-6 w-full rounded-2xl shadow-lg backdrop-blur-md bg-white/30 dark:bg-gray-800/30">
+    <div className="overflow-x-auto mt-6 w-full rounded-2xl shadow-lg backdrop-blur-md bg-white/30 dark:bg-gray-800/30 mx-1">
       <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 text-gray-900 dark:text-gray-100">
         <thead className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md">
           <tr className="sm:text-sm md:text-md lg:text-lg xl:text-lg">
@@ -79,10 +88,10 @@ export default function TabelaTimes({ data }: { data: Time[] }) {
             >
               <td className="p-2 flex items-center gap-2 font-semibold">
                 <span className="w-6 text-center text-red-600 dark:text-red-400">
-                  {time.classificacao}
+                  {tipo === "geral" ? time.classificacao : time.classGrp}
                 </span>
 
-                <span className="ml-1 block sm:hidden md:hidden">{time.sigla}</span>
+                <span className="ml-1 block sm:hidden md:hidden text-sm">{time.sigla}</span>
 
                 <span className="hidden sm:flex md:flex items-center gap-2">
                   <Image

@@ -35,6 +35,10 @@ export default async function Home() {
     a.nome.localeCompare(b.nome)
   );
 
+  // Separar os grupos com base na coluna "grupo"
+  const grupoA = tabela.filter((t) => t.grupo === "A");
+  const grupoB = tabela.filter((t) => t.grupo === "B");
+
   return (
     <main className="sm:max-w-3xl md:max-w-3xl lg:max-w-4xl xl:max-w-4xl mx-auto p-2 justify-items-center">
       {/* Popup */}
@@ -65,14 +69,32 @@ export default async function Home() {
         <GaleriaTimes times={times} />
       </div>
 
-      {/* Tabela de Classificação */}
+      {/* Grupo A */}
       <div className="flex flex-col items-center mt-8 sm:mt-10 max-w-4xl">
         <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-1 text-red-600 dark:text-red-400 relative inline-block">
-          Classificação
+          Grupo A
           <span className="block w-10 h-[2px] bg-red-600 dark:bg-red-400 mx-auto mt-1 rounded-full"></span>
         </h2>
       </div>
-      <TabelaTimes data={tabela} />
+      <TabelaTimes data={grupoA} tipo="grupo" />
+
+      {/* Grupo B */}
+      <div className="flex flex-col items-center mt-8 sm:mt-10 max-w-4xl">
+        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-1 text-red-600 dark:text-red-400 relative inline-block">
+          Grupo B
+          <span className="block w-10 h-[2px] bg-red-600 dark:bg-red-400 mx-auto mt-1 rounded-full"></span>
+        </h2>
+      </div>
+      <TabelaTimes data={grupoB} tipo="grupo" />
+
+      {/* Classificação Geral */}
+      <div className="flex flex-col items-center mt-8 sm:mt-10 max-w-4xl">
+        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-1 text-red-600 dark:text-red-400 relative inline-block">
+          Classificação Geral
+          <span className="block w-10 h-[2px] bg-red-600 dark:bg-red-400 mx-auto mt-1 rounded-full"></span>
+        </h2>
+      </div>
+      <TabelaTimes data={tabela} tipo="geral" />
 
       {/* Próximos Jogos */}
       <section className="flex flex-col items-center mt-8 sm:mt-10 max-w-2xl">

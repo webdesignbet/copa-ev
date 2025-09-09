@@ -16,10 +16,12 @@ const SPREADSHEET_ID = process.env.GOOGLE_SHEET_ID;
 export async function getTabela() {
   const response = await sheets.spreadsheets.values.get({
     spreadsheetId: SPREADSHEET_ID,
-    range: "Tabela!A2:L",
+    range: "Tabela!A2:N",
   });
+
   const rows = response.data.values;
   if (!rows) return [];
+
   return rows.map((r) => {
     const pontos = Number(r[4]);
     const jogos = Number(r[5]);
@@ -37,6 +39,8 @@ export async function getTabela() {
       golsPro: Number(r[9]),
       golsContra: Number(r[10]),
       saldoGols: Number(r[11]),
+      grupo: r[12],
+      classGrp: Number(r[13]),
     };
   });
 }
@@ -46,8 +50,10 @@ export async function getProximosJogos() {
     spreadsheetId: SPREADSHEET_ID,
     range: "ProximosJogos!A2:J",
   });
+
   const rows = response.data.values;
   if (!rows) return [];
+
   return rows.map((r) => ({
     id: Number(r[0]),
     data: r[1],
