@@ -32,13 +32,18 @@ interface TabelaTimesProps {
 }
 
 export default function TabelaTimes({ data, tipo }: TabelaTimesProps) {
-  const colunaClassificacao: keyof Time = tipo === "geral" ? "classificacao" : "classGrp";
-  
+  const colunaClassificacao: keyof Time =
+    tipo === "geral" ? "classificacao" : "classGrp";
+
   const [sortKey] = useState<keyof Time>(colunaClassificacao);
   const [sortAsc] = useState(true);
 
   const columns: Column[] = [
-    { label: "Classificação", key: colunaClassificacao, tooltip: "Classificação" },
+    {
+      label: "Classificação",
+      key: colunaClassificacao,
+      tooltip: "Classificação",
+    },
     { label: "P", key: "pontos", tooltip: "Pontos" },
     { label: "J", key: "jogos", tooltip: "Jogos" },
     { label: "V", key: "vitorias", tooltip: "Vitórias" },
@@ -71,9 +76,13 @@ export default function TabelaTimes({ data, tipo }: TabelaTimesProps) {
                 className="p-2 font-bold select-none relative min-w-[40px] transition"
                 title={col.tooltip}
               >
-                <span className={`flex items-center ${
-                  col.label === "Classificação" ? "classificacao" : "justify-center"
-                }`}>
+                <span
+                  className={`flex items-center ${
+                    col.label === "Classificação"
+                      ? "classificacao"
+                      : "justify-center"
+                  }`}
+                >
                   {col.label}
                 </span>
               </th>
@@ -91,11 +100,16 @@ export default function TabelaTimes({ data, tipo }: TabelaTimesProps) {
                   {tipo === "geral" ? time.classificacao : time.classGrp}
                 </span>
 
-                <span className="ml-1 block sm:hidden md:hidden text-sm">{time.sigla}</span>
+                <span className="ml-1 block sm:hidden md:hidden text-sm">
+                  {time.sigla}
+                </span>
 
                 <span className="hidden sm:flex md:flex items-center gap-2">
                   <Image
-                    src={time.brasao || "/brasoes/escudobase.svg"}
+                    src={
+                      `https://raw.githubusercontent.com/webdesignbet/brasoes/main/${time.brasao}.webp` ||
+                      "/brasoes/escudobase.svg"
+                    }
                     alt={time.nome}
                     width={26}
                     height={26}

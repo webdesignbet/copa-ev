@@ -70,7 +70,10 @@ export default function ProximosJogos({ data }: { data: Jogo[] }) {
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center gap-2">
                   <Image
-                    src={jogo.mandanteBrasao || "/brasoes/escudobase.svg"}
+                    src={
+                      `https://raw.githubusercontent.com/webdesignbet/brasoes/main/${jogo.mandanteBrasao}.webp` ||
+                      "/brasoes/escudobase.svg"
+                    }
                     alt={jogo.mandante}
                     width={32}
                     height={32}
@@ -107,7 +110,10 @@ export default function ProximosJogos({ data }: { data: Jogo[] }) {
                     {jogo.siglaVisitante}
                   </span>
                   <Image
-                    src={jogo.visitanteBrasao || "/brasoes/escudobase.svg"}
+                    src={
+                      `https://raw.githubusercontent.com/webdesignbet/brasoes/main/${jogo.mandanteBrasao}.webp` ||
+                      "/brasoes/escudobase.svg"
+                    }
                     alt={jogo.visitante}
                     width={32}
                     height={32}

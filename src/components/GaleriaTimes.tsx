@@ -60,7 +60,10 @@ export default function GaleriaTimes({ times }: { times: Time[] }) {
             title={time.nome}
           >
             <Image
-              src={time.brasao || "/brasoes/escudobase.svg"}
+              src={
+                `https://raw.githubusercontent.com/webdesignbet/brasoes/main/${time.brasao}.webp` ||
+                "/brasoes/escudobase.svg"
+              }
               alt={time.nome}
               width={50}
               height={50}
