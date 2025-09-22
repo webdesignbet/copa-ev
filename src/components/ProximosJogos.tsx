@@ -77,21 +77,31 @@ export default function ProximosJogos({ data }: { data: Jogo[] }) {
                     className="object-contain"
                     unoptimized
                   />
-                  <span className="text-sm font-semibold cursor-default" title={jogo.mandante}>
+                  <span
+                    className="text-sm sm:text-xs md:text-xs font-semibold cursor-default"
+                    title={jogo.mandante}
+                  >
                     {jogo.siglaMandante}
                   </span>
                 </div>
 
                 <div className="text-center">
-                  <div className="text-base sm:text-lg font-bold">{jogo.horario}</div>
+                  <div className="text-base sm:text-lg font-bold">
+                    {jogo.horario}
+                  </div>
                   <div className="text-xs text-gray-700 dark:text-gray-200">
-                    {new Date(jogo.data).toLocaleDateString()}
+                    {new Date(jogo.data + "T00:00:00").toLocaleDateString(
+                      "pt-BR",
+                      {
+                        timeZone: "America/Sao_Paulo",
+                      }
+                    )}
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2">
                   <span
-                    className="text-sm font-semibold cursor-default"
+                    className="text-sm sm:text-xs md:text-xs font-semibold cursor-default"
                     title={jogo.visitante}
                   >
                     {jogo.siglaVisitante}
