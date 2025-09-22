@@ -111,7 +111,7 @@ export default function ProximosJogos({ data }: { data: Jogo[] }) {
                   </span>
                   <Image
                     src={
-                      `https://raw.githubusercontent.com/webdesignbet/brasoes/main/${jogo.mandanteBrasao}.webp` ||
+                      `https://raw.githubusercontent.com/webdesignbet/brasoes/main/${jogo.visitanteBrasao}.webp` ||
                       "/brasoes/escudobase.svg"
                     }
                     alt={jogo.visitante}
