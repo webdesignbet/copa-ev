@@ -67,3 +67,20 @@ export async function getProximosJogos() {
     visitanteBrasao: r[9],
   }));
 }
+
+export async function getArtilheiros() {
+  const response = await sheets.spreadsheets.values.get({
+    spreadsheetId: SPREADSHEET_ID,
+    range: "Artilheiros!A2:D",
+  });
+
+  const rows = response.data.values;
+  if (!rows) return [];
+
+  return rows.map((r) => ({
+    posicao: Number(r[0]),
+    brasao: r[1],
+    jogador: r[2],
+    gols: Number(r[3]),
+  }));
+}

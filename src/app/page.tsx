@@ -1,23 +1,26 @@
-import { getTabela, getProximosJogos } from "@/utils/getGoogleSheetData";
-import TabelaTimes from "@/components/TabelaTimes";
-import ProximosJogos from "@/components/ProximosJogos";
+import {
+  getTabela,
+  getProximosJogos,
+  getArtilheiros,
+} from "@/utils/getGoogleSheetData";
 import ThemeToggle from "@/components/ThemeToggle";
 import GaleriaTimes from "@/components/GaleriaTimes";
 import Image from "next/image";
 import Popup from "@/components/Popup";
+import TabsContent from "@/components/TabsContent";
 
 export const revalidate = 60;
 
 export default async function Home() {
   const tabela = await getTabela();
   const proximosJogos = await getProximosJogos();
+  const artilheiros = await getArtilheiros();
 
-  // Extrair times únicos de proximosJogos
+  // Extrair times únicos
   const timesMap = new Map<
     string,
     { nome: string; sigla: string; brasao: string }
   >();
-
   proximosJogos.forEach((jogo) => {
     timesMap.set(jogo.siglaMandante, {
       nome: jogo.mandante,
@@ -35,19 +38,15 @@ export default async function Home() {
     a.nome.localeCompare(b.nome)
   );
 
-  // Separar os grupos com base na coluna "grupo"
   const grupoA = tabela.filter((t) => t.grupo === "A");
   const grupoB = tabela.filter((t) => t.grupo === "B");
 
   return (
     <main className="sm:max-w-3xl md:max-w-3xl lg:max-w-4xl xl:max-w-4xl mx-auto p-2 justify-items-center">
-      {/* Popup */}
       <Popup />
-
-      {/* Botão de Tema */}
       <ThemeToggle />
 
-      {/* Título Principal como Imagem */}
+      {/* Logo */}
       <div className="flex justify-center mt-4 mb-10">
         <Image
           src={"/logos/logo-vermelha3.webp"}
@@ -69,41 +68,14 @@ export default async function Home() {
         <GaleriaTimes times={times} />
       </div>
 
-      {/* Grupo A */}
-      <div className="flex flex-col items-center mt-8 sm:mt-10 max-w-4xl">
-        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-1 text-red-600 dark:text-red-400 relative inline-block">
-          Grupo A
-          <span className="block w-10 h-[2px] bg-red-600 dark:bg-red-400 mx-auto mt-1 rounded-full"></span>
-        </h2>
-      </div>
-      <TabelaTimes data={grupoA} tipo="grupo" />
-
-      {/* Grupo B */}
-      <div className="flex flex-col items-center mt-8 sm:mt-10 max-w-4xl">
-        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-1 text-red-600 dark:text-red-400 relative inline-block">
-          Grupo B
-          <span className="block w-10 h-[2px] bg-red-600 dark:bg-red-400 mx-auto mt-1 rounded-full"></span>
-        </h2>
-      </div>
-      <TabelaTimes data={grupoB} tipo="grupo" />
-
-      {/* Classificação Geral */}
-      <div className="flex flex-col items-center mt-8 sm:mt-10 max-w-4xl">
-        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-1 text-red-600 dark:text-red-400 relative inline-block">
-          Classificação Geral
-          <span className="block w-10 h-[2px] bg-red-600 dark:bg-red-400 mx-auto mt-1 rounded-full"></span>
-        </h2>
-      </div>
-      <TabelaTimes data={tabela} tipo="geral" />
-
-      {/* Próximos Jogos */}
-      <section className="flex flex-col items-center mt-8 sm:mt-10 max-w-2xl">
-        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-1 text-red-600 dark:text-red-400 relative inline-block">
-          Próximos Jogos
-          <span className="block w-10 h-[2px] bg-red-600 dark:bg-red-400 mx-auto mt-1 rounded-full"></span>
-        </h2>
-      </section>
-      <ProximosJogos data={proximosJogos} />
+      {/* Abas (Classificação / Artilheiros) */}
+      <TabsContent
+        tabela={tabela}
+        grupoA={grupoA}
+        grupoB={grupoB}
+        proximosJogos={proximosJogos}
+        artilheiros={artilheiros}
+      />
     </main>
   );
 }
