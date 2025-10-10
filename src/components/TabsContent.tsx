@@ -65,7 +65,7 @@ export default function TabsContent({
         className="mt-8"
       >
         {tab === "classificacao" ? (
-          <>
+          <div className="sm:max-w-3xl md:max-w-3xl lg:max-w-4xl xl:max-w-4xl mx-auto p-2 justify-items-center">
             {/* Grupo A */}
             <div className="flex flex-col items-center mt-8 sm:mt-10 max-w-4xl">
               <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-1 text-red-600 dark:text-red-400 relative inline-block">
@@ -101,7 +101,7 @@ export default function TabsContent({
               </h2>
             </section>
             <ProximosJogos data={proximosJogos} />
-          </>
+          </div>
         ) : (
           <Artilheiros data={artilheiros} />
         )}
