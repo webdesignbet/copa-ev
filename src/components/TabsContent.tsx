@@ -65,9 +65,9 @@ export default function TabsContent({
         className="mt-8"
       >
         {tab === "classificacao" ? (
-          <div className="sm:max-w-3xl md:max-w-3xl lg:max-w-4xl xl:max-w-4xl mx-auto p-2 justify-items-center">
+          <div className="sm:max-w-2xl md:max-w-2xl lg:max-w-3xl xl:max-w-3xl mx-auto px-1 py-2 justify-items-center">
             {/* Grupo A */}
-            <div className="flex flex-col items-center mt-8 sm:mt-10 max-w-4xl">
+            <div className="flex flex-col items-center mt-8 sm:mt-10 max-w-2xl">
               <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-1 text-red-600 dark:text-red-400 relative inline-block">
                 Grupo A
                 <span className="block w-10 h-[2px] bg-red-600 dark:bg-red-400 mx-auto mt-1 rounded-full"></span>
@@ -76,7 +76,7 @@ export default function TabsContent({
             <TabelaTimes data={grupoA} tipo="grupo" />
 
             {/* Grupo B */}
-            <div className="flex flex-col items-center mt-8 sm:mt-10 max-w-4xl">
+            <div className="flex flex-col items-center mt-8 sm:mt-10 max-w-2xl">
               <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-1 text-red-600 dark:text-red-400 relative inline-block">
                 Grupo B
                 <span className="block w-10 h-[2px] bg-red-600 dark:bg-red-400 mx-auto mt-1 rounded-full"></span>
@@ -85,7 +85,7 @@ export default function TabsContent({
             <TabelaTimes data={grupoB} tipo="grupo" />
 
             {/* Classificação Geral */}
-            <div className="flex flex-col items-center mt-8 sm:mt-10 max-w-4xl">
+            <div className="flex flex-col items-center mt-8 sm:mt-10 max-2-4xl">
               <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-1 text-red-600 dark:text-red-400 relative inline-block">
                 Classificação Geral
                 <span className="block w-10 h-[2px] bg-red-600 dark:bg-red-400 mx-auto mt-1 rounded-full"></span>

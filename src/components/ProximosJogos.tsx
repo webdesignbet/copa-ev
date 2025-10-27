@@ -61,9 +61,9 @@ export default function ProximosJogos({ data }: { data: Jogo[] }) {
           {duplicated.map((jogo, i) => (
             <div
               key={`${jogo.id}-${i}`}
-              className="min-w-[260px] sm:min-w-[290px] md:min-w-[320px] rounded-2xl p-4 shadow-lg bg-white/30 dark:bg-gray-800/30 backdrop-blur-md border border-red-200 dark:border-red-700 p-3 flex flex-col items-center transition hover:border-red-400 dark:hover:border-red-500"
+              className="min-w-[300px] sm:min-w-[300px] md:min-w-[330px] rounded-2xl p-4 shadow-lg bg-white/30 dark:bg-gray-800/30 backdrop-blur-md border border-red-200 dark:border-red-700 p-3 flex flex-col items-center transition hover:border-red-400 dark:hover:border-red-500"
             >
-              <div className="text-xs text-gray-600 dark:text-gray-300 mb-1">
+              <div className="sm:text-xs md:text-xs lg:text-md xl:text-md text-gray-600 dark:text-gray-300 mb-1">
                 {jogo.local}
               </div>
 
@@ -81,7 +81,7 @@ export default function ProximosJogos({ data }: { data: Jogo[] }) {
                     unoptimized
                   />
                   <span
-                    className="text-xs sm:text-xs md:text-xs font-semibold cursor-default"
+                    className="sm:text-xs md:text-xs lg:text-md xl:text-md font-semibold cursor-default"
                     title={jogo.mandante}
                   >
                     {jogo.siglaMandante}
@@ -89,7 +89,7 @@ export default function ProximosJogos({ data }: { data: Jogo[] }) {
                 </div>
 
                 <div className="text-center">
-                  <div className="text-base sm:text-lg font-bold">
+                  <div className="text-md sm:text-md font-bold">
                     {jogo.horario}
                   </div>
                   <div className="text-xs text-gray-700 dark:text-gray-200">

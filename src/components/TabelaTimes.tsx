@@ -72,14 +72,14 @@ export default function TabelaTimes({ data, tipo }: TabelaTimesProps) {
   };
 
   return (
-    <div className="overflow-x-auto mt-6 w-full rounded-2xl shadow-lg backdrop-blur-md bg-white/30 dark:bg-gray-800/30 mx-1">
+    <div className="overflow-x-auto mt-6 w-full max-w-full rounded-2xl shadow-lg backdrop-blur-md bg-white/30 dark:bg-gray-800/30 p-0">
       <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 text-gray-900 dark:text-gray-100">
         <thead className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md">
-          <tr className="sm:text-sm md:text-sm lg:text-md xl:text-lg">
+          <tr className="sm:text-xs md:text-xs lg:text-lg xl:text-lg">
             {columns.map((col) => (
               <th
                 key={col.key as string}
-                className="p-2 font-bold select-none relative min-w-[40px] transition"
+                className="px-1 py-2 font-bold select-none relative min-w-[20px] transition"
                 title={col.tooltip}
               >
                 <span
@@ -95,7 +95,7 @@ export default function TabelaTimes({ data, tipo }: TabelaTimesProps) {
             ))}
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-200 dark:divide-gray-700 sm:text-sm md:text-sm lg:text-md xl:text-lg">
+        <tbody className="divide-y divide-gray-200 dark:divide-gray-700 sm:text-xs md:text-xs lg:text-lg xl:text-lg">
           {sortedData.map((time) => {
             const pos =
               tipo === "geral"
@@ -108,7 +108,7 @@ export default function TabelaTimes({ data, tipo }: TabelaTimesProps) {
                 className="hover:bg-red-50 dark:hover:bg-red-900/20 transition"
               >
                 <td
-                  className={`p-2 flex items-center gap-2 font-semibold ${
+                  className={`px-1 py-2 flex items-center gap-2 font-semibold ${
                     tipo === "geral" ? getBorderColor(pos) : ""
                   }`}
                 >
@@ -139,14 +139,14 @@ export default function TabelaTimes({ data, tipo }: TabelaTimesProps) {
                     <span className="ml-1">{time.nome}</span>
                   </span>
                 </td>
-                <td className="p-2 py-2 text-center">{time.pontos}</td>
-                <td className="p-2 py-2 text-center">{time.jogos}</td>
-                <td className="p-2 py-2 text-center">{time.vitorias}</td>
-                <td className="p-2 py-2 text-center">{time.empates}</td>
-                <td className="p-2 py-2 text-center">{time.derrotas}</td>
-                <td className="p-2 py-2 text-center">{time.golsPro}</td>
-                <td className="p-2 py-2 text-center">{time.golsContra}</td>
-                <td className="p-2 py-2 text-center">{time.saldoGols}</td>
+                <td className="px-1 py-2 text-center">{time.pontos}</td>
+                <td className="px-1 py-2 text-center">{time.jogos}</td>
+                <td className="px-1 py-2 text-center">{time.vitorias}</td>
+                <td className="px-1 py-2 text-center">{time.empates}</td>
+                <td className="px-1 py-2 text-center">{time.derrotas}</td>
+                <td className="px-1 py-2 text-center">{time.golsPro}</td>
+                <td className="px-1 py-2 text-center">{time.golsContra}</td>
+                <td className="px-1 py-2 text-center">{time.saldoGols}</td>
               </tr>
             );
           })}
