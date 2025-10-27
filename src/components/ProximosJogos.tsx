@@ -71,7 +71,7 @@ export default function ProximosJogos({ data }: { data: Jogo[] }) {
                 <div className="flex items-center gap-2">
                   <Image
                     src={
-                      `https://raw.githubusercontent.com/webdesignbet/brasoes/main/${jogo.mandanteBrasao}.webp` ||
+                      `/api/brasoes/${jogo.mandanteBrasao}` ||
                       "/brasoes/escudobase.svg"
                     }
                     alt={jogo.mandante}
@@ -111,7 +111,7 @@ export default function ProximosJogos({ data }: { data: Jogo[] }) {
                   </span>
                   <Image
                     src={
-                      `https://raw.githubusercontent.com/webdesignbet/brasoes/main/${jogo.visitanteBrasao}.webp` ||
+                      `/api/brasoes/${jogo.visitanteBrasao}` ||
                       "/brasoes/escudobase.svg"
                     }
                     alt={jogo.visitante}

@@ -36,7 +36,7 @@ export default function Artilheiros({ data }: { data: Artilheiro[] }) {
                 </span>
                 <Image
                   src={
-                    `https://raw.githubusercontent.com/webdesignbet/brasoes/main/${art.brasao}.webp` ||
+                    `/api/brasoes/${art.brasao}` ||
                     "/brasoes/escudobase.svg"
                   }
                   alt={art.time}

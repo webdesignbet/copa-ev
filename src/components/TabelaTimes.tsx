@@ -123,7 +123,7 @@ export default function TabelaTimes({ data, tipo }: TabelaTimesProps) {
                   <span className="hidden sm:flex md:flex items-center gap-2">
                     <Image
                       src={
-                        `https://raw.githubusercontent.com/webdesignbet/brasoes/main/${time.brasao}.webp` ||
+                        `/api/brasoes/${time.brasao}` ||
                         "/brasoes/escudobase.svg"
                       }
                       alt={time.nome}
