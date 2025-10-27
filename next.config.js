@@ -10,7 +10,6 @@ const nextConfig = withPWA({
       {
         protocol: "https",
         hostname: "raw.githubusercontent.com",
-        pathname: '/**',
       },
     ],
     formats: ["image/webp"],
