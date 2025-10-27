@@ -81,7 +81,7 @@ export default function ProximosJogos({ data }: { data: Jogo[] }) {
                     unoptimized
                   />
                   <span
-                    className="text-sm sm:text-xs md:text-xs font-semibold cursor-default"
+                    className="text-xs sm:text-xs md:text-xs font-semibold cursor-default"
                     title={jogo.mandante}
                   >
                     {jogo.siglaMandante}
