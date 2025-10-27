@@ -65,6 +65,12 @@ export default function TabelaTimes({ data, tipo }: TabelaTimesProps) {
       : (b[sortKey] as number) - (a[sortKey] as number);
   });
 
+  const getBorderColor = (posicao: number) => {
+    if (posicao <= 16) return "border-l-4 border-green-500";
+    if (posicao >= 19) return "border-l-4 border-red-500";
+    return "border-l-0";
+  };
+
   return (
     <div className="overflow-x-auto mt-6 w-full rounded-2xl shadow-lg backdrop-blur-md bg-white/30 dark:bg-gray-800/30 mx-1">
       <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 text-gray-900 dark:text-gray-100">
@@ -90,49 +96,60 @@ export default function TabelaTimes({ data, tipo }: TabelaTimesProps) {
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-200 dark:divide-gray-700 sm:text-sm md:text-sm lg:text-md xl:text-lg">
-          {sortedData.map((time) => (
-            <tr
-              key={time.classificacao}
-              className="hover:bg-red-50 dark:hover:bg-red-900/20 transition"
-            >
-              <td className="p-2 flex items-center gap-2 font-semibold">
-                <span className="w-6 text-center text-red-600 dark:text-red-400">
-                  {tipo === "geral" ? time.classificacao : time.classGrp}
-                </span>
+          {sortedData.map((time) => {
+            const pos =
+              tipo === "geral"
+                ? time.classificacao
+                : time.classGrp ?? time.classificacao;
 
-                <span className="ml-1 block sm:hidden md:hidden text-sm">
-                  {time.sigla}
-                </span>
+            return (
+              <tr
+                key={`${tipo}-${pos}`}
+                className="hover:bg-red-50 dark:hover:bg-red-900/20 transition"
+              >
+                <td
+                  className={`p-2 flex items-center gap-2 font-semibold ${
+                    tipo === "geral" ? getBorderColor(pos) : ""
+                  }`}
+                >
+                  <span className="w-6 text-center text-red-600 dark:text-red-400">
+                    {pos}
+                  </span>
 
-                <span className="hidden sm:flex md:flex items-center gap-2">
-                  <Image
-                    src={
-                      `https://raw.githubusercontent.com/webdesignbet/brasoes/main/${time.brasao}.webp` ||
-                      "/brasoes/escudobase.svg"
-                    }
-                    alt={time.nome}
-                    width={26}
-                    height={26}
-                    className="object-contain"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = "/brasoes/escudobase.svg";
-                    }}
-                    unoptimized
-                  />
-                  <span className="ml-1">{time.nome}</span>
-                </span>
-              </td>
-              <td className="p-2 py-2 text-center">{time.pontos}</td>
-              <td className="p-2 py-2 text-center">{time.jogos}</td>
-              <td className="p-2 py-2 text-center">{time.vitorias}</td>
-              <td className="p-2 py-2 text-center">{time.empates}</td>
-              <td className="p-2 py-2 text-center">{time.derrotas}</td>
-              <td className="p-2 py-2 text-center">{time.golsPro}</td>
-              <td className="p-2 py-2 text-center">{time.golsContra}</td>
-              <td className="p-2 py-2 text-center">{time.saldoGols}</td>
-            </tr>
-          ))}
+                  <span className="ml-1 block sm:hidden md:hidden text-sm">
+                    {time.sigla}
+                  </span>
+
+                  <span className="hidden sm:flex md:flex items-center gap-2">
+                    <Image
+                      src={
+                        `https://raw.githubusercontent.com/webdesignbet/brasoes/main/${time.brasao}.webp` ||
+                        "/brasoes/escudobase.svg"
+                      }
+                      alt={time.nome}
+                      width={26}
+                      height={26}
+                      className="object-contain"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = "/brasoes/escudobase.svg";
+                      }}
+                      unoptimized
+                    />
+                    <span className="ml-1">{time.nome}</span>
+                  </span>
+                </td>
+                <td className="p-2 py-2 text-center">{time.pontos}</td>
+                <td className="p-2 py-2 text-center">{time.jogos}</td>
+                <td className="p-2 py-2 text-center">{time.vitorias}</td>
+                <td className="p-2 py-2 text-center">{time.empates}</td>
+                <td className="p-2 py-2 text-center">{time.derrotas}</td>
+                <td className="p-2 py-2 text-center">{time.golsPro}</td>
+                <td className="p-2 py-2 text-center">{time.golsContra}</td>
+                <td className="p-2 py-2 text-center">{time.saldoGols}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
