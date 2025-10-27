@@ -104,7 +104,7 @@ export default function ProximosJogos({ data }: { data: Jogo[] }) {
 
                 <div className="flex items-center gap-2">
                   <span
-                    className="text-sm sm:text-xs md:text-xs font-semibold cursor-default"
+                    className="text-xs sm:text-xs md:text-xs font-semibold cursor-default"
                     title={jogo.visitante}
                   >
                     {jogo.siglaVisitante}
